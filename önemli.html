@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İyi ki Doğdun Aşkım 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf6f0;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .quote {
+      font-style: italic;
+      text-align: center;
+      margin-top: 2rem;
+      color: #666;
+    }
+    .countdown {
+      font-size: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+      font-weight: bold;
+    }
+    audio {
+      display: none;
+    }
+    .kalp-yagmuru span {
+      position: fixed;
+      top: -10vh;
+      color: red;
+      animation: yag 5s linear infinite;
+      font-size: 2rem;
+      z-index: 9999;
+    }
+    @keyframes yag {
+      to {
+        transform: translateY(120vh);
+        opacity: 0;
+      }
+    }
+    #mesaj {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-anewbeginning.mp3" type="audio/mp3">
+  </audio>
+
+  <header>
+    <h1>İyi ki Doğdun Aşkım 💖</h1>
+    <p>Bu site senin için, sadece senin...</p>
+  </header>
+
+  <section id="mesaj">
+    <h2>💌 Doğum Günü Mesajı</h2>
+    <p>
+      Canımın içi,<br><br>
+
+Bugün, senin bu dünyaya gelişinle benim dünyamın güzelleştiği gün…
+Senin varlığın, hayatımda açan en güzel çiçek, geceme doğan en parlak yıldız, ruhumun huzur bulduğu en derin sessizlik.
+
+Seninle her gün yeniden doğuyorum. Gülüşün, kalbimin en güzel melodisi; bakışın, en güvenli limanım oldu.
+Bazen bir bakışınla içimde fırtınalar dinerken, bazen bir dokunuşunla zaman duruyor gibi hissediyorum. Seninle her an bir mucizeye tanıklık ediyorum.
+
+Sen, bu hayattaki en güzel tesadüfüm değil, en güzel seçimimsin. İyi ki vardın, iyi ki varsın, iyi ki hep olacaksın…
+Bu yeni yaşın, kalbin kadar güzel, hayallerin kadar büyük, umutların kadar aydınlık olsun.
+Ve ben, bir dahaki gününde yanıbaşında olayım, pastanı ben vereyim, her mumda aynı dileği tutalım: "Hep birlikte, hep sevgiyle."
+
+İyi ki doğdun, hayatımın anlamı. Seni çok ama çok seviyorum… 🎂❤️<br><br>
+      Sonsuz sevgilerle,<br>
+      [MAMİİŞŞŞ]
+    </p>
+    <p class="quote">
+      “Bazen en derin duygular, kelimelere sığmaz; sadece varlıklarıyla kalır geriye.”<br>
+      – Kalıntı, Kazuo Ishiguro
+    </p>
+  </section>
+
+  <section id="geri-sayim">
+    <h2>🎉 Doğum Gününe Geri Sayım</h2>
+    <div class="countdown" id="countdown"></div>
+  </section>
+
+  <div class="kalp-yagmuru" id="kalpYagmuru"></div>
+
+  <script>
+    const hedefTarih = new Date("May 26, 2025 00:00:00").getTime();
+    const countdownElement = document.getElementById("countdown");
+    const mesajElement = document.getElementById("mesaj");
+
+    const guncelle = () => {
+      const simdi = new Date().getTime();
+      const fark = hedefTarih - simdi;
+
+      if (fark <= 0) {
+        mesajElement.style.display = "block";
+        countdownElement.innerHTML = "Bugün doğum günün! 🎉🎂";
+        return;
+      }
+
+      const gun = Math.floor(fark / (1000 * 60 * 60 * 24));
+      const saat = Math.floor((fark % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const dakika = Math.floor((fark % (1000 * 60 * 60)) / (1000 * 60));
+      const saniye = Math.floor((fark % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${gun} gün ${saat} saat ${dakika} dk ${saniye} sn kaldı`;
+    };
+
+    setInterval(guncelle, 1000);
+    guncelle();
+
+    const kalpYagmuru = document.getElementById("kalpYagmuru");
+    const kalpOlustur = () => {
+      const kalp = document.createElement("span");
+      kalp.innerHTML = "❤️";
+      kalp.style.left = Math.random() * 100 + "vw";
+      kalp.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      kalpYagmuru.appendChild(kalp);
+
+      setTimeout(() => {
+        kalp.remove();
+      }, 5000);
+    };
+    setInterval(kalpOlustur, 300);
+  </script>
+</body>
+</html>
